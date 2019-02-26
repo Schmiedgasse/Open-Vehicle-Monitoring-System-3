@@ -6,8 +6,8 @@
  ;    0.1  Copied, not tested 
  ;
  ;    (C) 2018       Martin Graml
+ ;    (C) 2019       Martin Hofgesang
  ;
- ;    Changes by Martin Hofgesang
  ;
  ;    
  ;
