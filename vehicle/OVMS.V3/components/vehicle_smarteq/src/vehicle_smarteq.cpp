@@ -29,13 +29,44 @@
  ; OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  ; THE SOFTWARE.
  ;
- ; Most of the CAN Messages are based on https://github.com/MyLab-odyssey/ED_BMSdiag
+ ; CAN Bus Messages from ED4SCAN https://github.com/MyLab-odyssey/ED_BMSdiag
+ ; https://github.com/MyLab-odyssey/ED4scan
+ ;
+ ;
+ ;const PROGMEM uint32_t rqID_BMS                   = 0x79B;
+ ;const PROGMEM uint32_t respID_BMS                 = 0x7BB; 
+ ;const PROGMEM byte rqBattHealth[2]                = {0x21, 0x61}; 
+ ;const PROGMEM byte rqBattState[2]                 = {0x21, 0x07}; 
+ ;const PROGMEM byte rqBattSOC[2]                   = {0x21, 0x08}; 
+ ;const PROGMEM byte rqBattSOCrecal[2]              = {0x21, 0x25}; 
+ ;const PROGMEM byte rqBattTemperatures[2]          = {0x21, 0x04};  
+ ;
+ ;const PROGMEM uint32_t rqID_DASH                  = 0x743;
+ ;const PROGMEM uint32_t respID_DASH                = 0x763; 
+ ;const PROGMEM byte rqDashODO[3]                   = {0x22, 0x02, 0x07};
+ ;const PROGMEM byte rqDashTemperature[3]           = {0x22, 0x20, 0x0C};
+ ;
+ ;const PROGMEM uint32_t rqID_EVC                   = 0x7E4;
+ ;const PROGMEM uint32_t respID_EVC                 = 0x7EC;
+ ;const PROGMEM byte rqSOC_EVC[3]                   = {0x22, 0x20, 0x02};
+ ;const PROGMEM byte rqKeyState[3]                  = {0x22, 0x20, 0x0E};
+ ;const PROGMEM byte rqDCDC_State[3]                = {0x22, 0x30, 0x2A};
+ ;const PROGMEM byte rqDCDC_Load[3]                 = {0x22, 0x34, 0x95};
+ ;const PROGMEM byte rqDCDC_Amps[3]                 = {0x22, 0x30, 0x25};
+ ;const PROGMEM byte rqDCDC_Power[3]                = {0x22, 0x34, 0x94};
+ ;const PROGMEM byte rqHV_Energy[3]                 = {0x22, 0x32, 0x0C}; //usable energy kWh
+ ;const PROGMEM byte rqEV_ChgLog_P1[3]              = {0x22, 0x33, 0xD4};
+ ;const PROGMEM byte rqEV_Range[3]                  = {0x22, 0x34, 0x51};
+ ;const PROGMEM byte rqEV_BattCooling[3]            = {0x22, 0x34, 0xA7};
+ ;const PROGMEM byte rqEV_BattHeating[3]            = {0x22, 0x34, 0xA8};
  */
 
 #include "ovms_log.h"
 #include "vehicle_smarteq.h"
 
 static const char *TAG = "v-smarteq";
+static const char psoc = "0x21, 0x08";
+
 
 #include <stdio.h>
 #include "ovms_metrics.h"
